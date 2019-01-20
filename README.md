@@ -1,4 +1,4 @@
-# Microsoft Azure SDK for .NET (Hyak/Hydra based SDK - formerly master branch)
+# Microsoft Azure SDK for .NET (Hyak/Hydra based SDK - former master branch)
 
 The Microsoft Azure SDK for .NET allows you to build applications
 that take advantage of scalable cloud computing resources.
