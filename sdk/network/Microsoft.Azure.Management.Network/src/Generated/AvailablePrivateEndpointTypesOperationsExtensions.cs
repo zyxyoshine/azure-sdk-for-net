@@ -29,7 +29,7 @@ namespace Microsoft.Azure.Management.Network
             /// The operations group for this extension method.
             /// </param>
             /// <param name='location'>
-            /// the location of the domain name.
+            /// The location of the domain name.
             /// </param>
             public static IPage<AvailablePrivateEndpointType> List(this IAvailablePrivateEndpointTypesOperations operations, string location)
             {
@@ -44,7 +44,7 @@ namespace Microsoft.Azure.Management.Network
             /// The operations group for this extension method.
             /// </param>
             /// <param name='location'>
-            /// the location of the domain name.
+            /// The location of the domain name.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.

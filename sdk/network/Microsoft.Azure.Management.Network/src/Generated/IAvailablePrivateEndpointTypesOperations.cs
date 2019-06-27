@@ -28,7 +28,7 @@ namespace Microsoft.Azure.Management.Network
         /// Endpoint in this subscription in this region.
         /// </summary>
         /// <param name='location'>
-        /// the location of the domain name.
+        /// The location of the domain name.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.

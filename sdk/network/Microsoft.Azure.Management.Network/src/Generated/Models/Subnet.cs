@@ -37,7 +37,7 @@ namespace Microsoft.Azure.Management.Network.Models
         /// <param name="id">Resource ID.</param>
         /// <param name="addressPrefix">The address prefix for the
         /// subnet.</param>
-        /// <param name="addressPrefixes">List of  address prefixes for the
+        /// <param name="addressPrefixes">List of address prefixes for the
         /// subnet.</param>
         /// <param name="networkSecurityGroup">The reference of the
         /// NetworkSecurityGroup resource.</param>
@@ -50,7 +50,7 @@ namespace Microsoft.Azure.Management.Network.Models
         /// <param name="serviceEndpointPolicies">An array of service endpoint
         /// policies.</param>
         /// <param name="privateEndpoints">An array of references to private
-        /// endpoints </param>
+        /// endpoints.</param>
         /// <param name="ipConfigurations">Gets an array of references to the
         /// network interface IP configurations using subnet.</param>
         /// <param name="ipConfigurationProfiles">Array of IP configuration
@@ -106,7 +106,7 @@ namespace Microsoft.Azure.Management.Network.Models
         public string AddressPrefix { get; set; }
 
         /// <summary>
-        /// Gets or sets list of  address prefixes for the subnet.
+        /// Gets or sets list of address prefixes for the subnet.
         /// </summary>
         [JsonProperty(PropertyName = "properties.addressPrefixes")]
         public IList<string> AddressPrefixes { get; set; }
@@ -142,7 +142,7 @@ namespace Microsoft.Azure.Management.Network.Models
         public IList<ServiceEndpointPolicy> ServiceEndpointPolicies { get; set; }
 
         /// <summary>
-        /// Gets an array of references to private endpoints
+        /// Gets an array of references to private endpoints.
         /// </summary>
         [JsonProperty(PropertyName = "properties.privateEndpoints")]
         public IList<PrivateEndpoint> PrivateEndpoints { get; private set; }

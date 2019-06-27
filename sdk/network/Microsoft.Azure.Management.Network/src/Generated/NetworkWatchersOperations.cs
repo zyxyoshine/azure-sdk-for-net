@@ -1366,7 +1366,7 @@ namespace Microsoft.Azure.Management.Network
         }
 
         /// <summary>
-        /// Configures flow log  and traffic analytics (optional) on a specified
+        /// Configures flow log and traffic analytics (optional) on a specified
         /// resource.
         /// </summary>
         /// <param name='resourceGroupName'>
@@ -2817,7 +2817,7 @@ namespace Microsoft.Azure.Management.Network
         }
 
         /// <summary>
-        /// Configures flow log  and traffic analytics (optional) on a specified
+        /// Configures flow log and traffic analytics (optional) on a specified
         /// resource.
         /// </summary>
         /// <param name='resourceGroupName'>

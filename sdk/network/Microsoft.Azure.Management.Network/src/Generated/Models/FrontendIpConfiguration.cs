@@ -47,6 +47,9 @@ namespace Microsoft.Azure.Management.Network.Models
         /// configuration.</param>
         /// <param name="privateIPAllocationMethod">The Private IP allocation
         /// method. Possible values include: 'Static', 'Dynamic'</param>
+        /// <param name="privateIPAddressVersion">It represents whether the
+        /// specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4.
+        /// Possible values include: 'IPv4', 'IPv6'</param>
         /// <param name="subnet">The reference of the subnet resource.</param>
         /// <param name="publicIPAddress">The reference of the Public IP
         /// resource.</param>
@@ -62,7 +65,7 @@ namespace Microsoft.Azure.Management.Network.Models
         /// the resource is updated.</param>
         /// <param name="zones">A list of availability zones denoting the IP
         /// allocated for the resource needs to come from.</param>
-        public FrontendIPConfiguration(string id = default(string), IList<SubResource> inboundNatRules = default(IList<SubResource>), IList<SubResource> inboundNatPools = default(IList<SubResource>), IList<SubResource> outboundRules = default(IList<SubResource>), IList<SubResource> loadBalancingRules = default(IList<SubResource>), string privateIPAddress = default(string), string privateIPAllocationMethod = default(string), Subnet subnet = default(Subnet), PublicIPAddress publicIPAddress = default(PublicIPAddress), SubResource publicIPPrefix = default(SubResource), string provisioningState = default(string), string name = default(string), string etag = default(string), IList<string> zones = default(IList<string>))
+        public FrontendIPConfiguration(string id = default(string), IList<SubResource> inboundNatRules = default(IList<SubResource>), IList<SubResource> inboundNatPools = default(IList<SubResource>), IList<SubResource> outboundRules = default(IList<SubResource>), IList<SubResource> loadBalancingRules = default(IList<SubResource>), string privateIPAddress = default(string), string privateIPAllocationMethod = default(string), string privateIPAddressVersion = default(string), Subnet subnet = default(Subnet), PublicIPAddress publicIPAddress = default(PublicIPAddress), SubResource publicIPPrefix = default(SubResource), string provisioningState = default(string), string name = default(string), string etag = default(string), IList<string> zones = default(IList<string>))
             : base(id)
         {
             InboundNatRules = inboundNatRules;
@@ -71,6 +74,7 @@ namespace Microsoft.Azure.Management.Network.Models
             LoadBalancingRules = loadBalancingRules;
             PrivateIPAddress = privateIPAddress;
             PrivateIPAllocationMethod = privateIPAllocationMethod;
+            PrivateIPAddressVersion = privateIPAddressVersion;
             Subnet = subnet;
             PublicIPAddress = publicIPAddress;
             PublicIPPrefix = publicIPPrefix;
@@ -122,6 +126,14 @@ namespace Microsoft.Azure.Management.Network.Models
         /// </summary>
         [JsonProperty(PropertyName = "properties.privateIPAllocationMethod")]
         public string PrivateIPAllocationMethod { get; set; }
+
+        /// <summary>
+        /// Gets or sets it represents whether the specific ipconfiguration is
+        /// IPv4 or IPv6. Default is taken as IPv4. Possible values include:
+        /// 'IPv4', 'IPv6'
+        /// </summary>
+        [JsonProperty(PropertyName = "properties.privateIPAddressVersion")]
+        public string PrivateIPAddressVersion { get; set; }
 
         /// <summary>
         /// Gets or sets the reference of the subnet resource.

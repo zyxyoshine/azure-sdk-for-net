@@ -533,7 +533,7 @@ namespace Microsoft.Azure.Management.Network
             }
 
             /// <summary>
-            /// Configures flow log  and traffic analytics (optional) on a specified
+            /// Configures flow log and traffic analytics (optional) on a specified
             /// resource.
             /// </summary>
             /// <param name='operations'>
@@ -554,7 +554,7 @@ namespace Microsoft.Azure.Management.Network
             }
 
             /// <summary>
-            /// Configures flow log  and traffic analytics (optional) on a specified
+            /// Configures flow log and traffic analytics (optional) on a specified
             /// resource.
             /// </summary>
             /// <param name='operations'>
@@ -1092,7 +1092,7 @@ namespace Microsoft.Azure.Management.Network
             }
 
             /// <summary>
-            /// Configures flow log  and traffic analytics (optional) on a specified
+            /// Configures flow log and traffic analytics (optional) on a specified
             /// resource.
             /// </summary>
             /// <param name='operations'>
@@ -1113,7 +1113,7 @@ namespace Microsoft.Azure.Management.Network
             }
 
             /// <summary>
-            /// Configures flow log  and traffic analytics (optional) on a specified
+            /// Configures flow log and traffic analytics (optional) on a specified
             /// resource.
             /// </summary>
             /// <param name='operations'>

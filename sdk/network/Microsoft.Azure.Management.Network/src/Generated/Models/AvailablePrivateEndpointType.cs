@@ -34,8 +34,8 @@ namespace Microsoft.Azure.Management.Network.Models
         /// <param name="id">A unique identifier of the
         /// AvailablePrivateEndpoint Type resource.</param>
         /// <param name="type">Resource type.</param>
-        /// <param name="serviceName">The name of the service and resource
-        /// </param>
+        /// <param name="serviceName">The name of the service and
+        /// resource.</param>
         public AvailablePrivateEndpointType(string id = default(string), string type = default(string), string serviceName = default(string))
         {
             Id = id;
@@ -63,7 +63,7 @@ namespace Microsoft.Azure.Management.Network.Models
         public string Type { get; set; }
 
         /// <summary>
-        /// Gets or sets the name of the service and resource
+        /// Gets or sets the name of the service and resource.
         /// </summary>
         [JsonProperty(PropertyName = "serviceName")]
         public string ServiceName { get; set; }
