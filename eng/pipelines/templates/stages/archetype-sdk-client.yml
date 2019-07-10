@@ -7,40 +7,40 @@ stages:
     - script: |
       echo I'm checking things out before we get started!
 
-- stage: Build
-  dependsOn: Check
-  jobs:
-  - template: ../jobs/archetype-sdk-client.yml
-    parameters:
-      ServiceDirectory: ${{parameters.ServiceDirectory}}
-  - deployment: RunSign
-    environment: Signing
-    steps:
-    - script: |
-      echo I'm signing your run package(s)!
-  - deployment: PublishRunToInternal
-    environment: 'Internal Registry'
-    steps:
-    - script: |
-      echo I'm publishing your run package(s) to internal!
+# - stage: Build
+#   dependsOn: Check
+#   jobs:
+#   - template: ../jobs/archetype-sdk-client.yml
+#     parameters:
+#       ServiceDirectory: ${{parameters.ServiceDirectory}}
+#   - deployment: RunSign
+#     environment: Signing
+#     steps:
+#     - script: |
+#       echo I'm signing your run package(s)!
+#   - deployment: PublishRunToInternal
+#     environment: 'Internal Registry'
+#     steps:
+#     - script: |
+#       echo I'm publishing your run package(s) to internal!
 
-- stage: Test
-  dependsOn: Build
-  jobs:
-  - job: UnitTesting
-    steps:
-    - script: |
-      echo I'm running your unit tests(s)!
-  - job: SmokeTesting
-    dependsOn: UnitTesting
-    steps:
-    - script: |
-      echo I'm running your smoke tests(s)!
-  - job: LiveTesting
-    dependsOn: SmokeTesting
-    steps:
-    - script: |
-      echo I'm running your live tests(s)!
+# - stage: Test
+#   dependsOn: Build
+#   jobs:
+#   - job: UnitTesting
+#     steps:
+#     - script: |
+#       echo I'm running your unit tests(s)!
+#   - job: SmokeTesting
+#     dependsOn: UnitTesting
+#     steps:
+#     - script: |
+#       echo I'm running your smoke tests(s)!
+#   - job: LiveTesting
+#     dependsOn: SmokeTesting
+#     steps:
+#     - script: |
+#       echo I'm running your live tests(s)!
 
 - stage: Dogfood
   dependsOn: Test
