@@ -1,12 +1,100 @@
 stages:
 
+- stage: Check
+  jobs:
+  - job: Check
+    steps:
+    - script: |
+      echo I'm checking things out before we get started!
+
 - stage: Build
+  dependsOn: Check
+  jobs:
+  - template: ../jobs/archetype-sdk-client.yml
+    parameters:
+      ServiceDirectory: ${{parameters.ServiceDirectory}}
+  - deployment: RunSign
+    environment: Signing
+    steps:
+    - script: |
+      echo I'm signing your run package(s)!
+  - deployment: PublishRunToInternal
+    environment: 'Internal Registry'
+    steps:
+    - script: |
+      echo I'm publishing your run package(s) to internal!
 
 - stage: Test
   dependsOn: Build
+  jobs:
+  - job: UnitTesting
+    steps:
+    - script: |
+      echo I'm running your unit tests(s)!
+  - job: SmokeTesting
+    dependsOn: UnitTesting
+    steps:
+    - script: |
+      echo I'm running your smoke tests(s)!
+  - job: LiveTesting
+    dependsOn: SmokeTesting
+    steps:
+    - script: |
+      echo I'm running your live tests(s)!
+
+- stage: Dogfood
+  dependsOn: Test
+  jobs:
+  - deployment: PublishRunToPublic
+    environment: 'Public Registry'
+    steps:
+    - script: |
+      echo I'm publishing you run package(s) to public!
 
 - stage: Preview
   dependsOn: Test
+  jobs:
+  - deployment: PreviewSign
+    environment: Signing
+    steps:
+    - script: |
+      echo I'm signing your preview package(s)!
+  - deployment: PublishPreviewToInternal
+    environment: 'Internal Registry'
+    steps:
+    - script: |
+      echo I'm publishing your preview package(s) to internal!
+  - deployment: PublishPreviewToPublic
+    environment: 'Public Registry'
+    steps:
+    - script: |
+      echo I'm publishing your preview package(s) to public!
+  - deployment: PublishPreviewToNuGet
+    environments: 'NuGet Registry'
+    steps:
+    - script: |
+      echo I'm publishing your preview package(s) to NuGet.org!
 
 - stage: Release
   dependsOn: Test
+  jobs:
+  - deployment: ReleaseSign
+    environment: Signing
+    steps:
+    - script: |
+      echo I'm signing your release package(s)!
+  - deployment: PublishReleaseToInternal
+    environment: 'Internal Registry'
+    steps:
+    - script: |
+      echo I'm publishing your release package(s) to internal!
+  - deployment: PublishReleaseToPublic
+    environment: 'Public Registry'
+    steps:
+    - script: |
+      echo I'm publishing your release package(s) to public!
+  - deployment: PublishReleaseToNuGet
+    environments: 'NuGet Registry'
+    steps:
+    - script: |
+      echo I'm publishing your release package(s) to NuGet.org!
