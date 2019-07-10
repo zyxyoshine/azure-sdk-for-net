@@ -22,3 +22,10 @@ stages:
   - job: LiveTest
     dependsOn: SmokeTest
     pool: server
+
+- stage: PublishPreview
+  dependsOn: Test
+  jobs:
+  - ${{each artifact in parameters.Artifacts}}
+    pool: server
+
