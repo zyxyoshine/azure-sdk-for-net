@@ -3,19 +3,23 @@ stages:
   jobs:
   - job: BuildPackages
     steps:
-    - script: echo Pretend I'm building your code!
+    - script: |
+      echo Pretend I'm building your code!
 
 - stage: Test
   dependsOn: Build
   jobs:
   - job: UnitTest
     steps:
-    - script: echo Pretend I'm unit testing your code!
+    - script: |
+      echo Pretend I'm unit testing your code!
   - job: SmokeTest
     dependsOn: UnitTest
     steps:
-    - script: echo Pretend I'm smoke testing your code!
+    - script: |
+      echo Pretend I'm smoke testing your code!
   - job: LiveTest
     dependsOn: SmokeTest
     steps:
-    - script: echo Pretend I'm live testing your code!
+    - script: |
+      echo Pretend I'm live testing your code!
