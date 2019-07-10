@@ -1,0 +1,12 @@
+stages:
+
+- stage: Build
+
+- stage: Test
+  dependsOn: Build
+
+- stage: Preview
+  dependsOn: Test
+
+- stage: Release
+  dependsOn: Test
