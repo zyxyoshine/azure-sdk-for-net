@@ -1,25 +1,24 @@
 stages:
+- stage: Check
+  jobs:
+  - job: ValidatePipeline
+    pool: server
+
 - stage: Build
   jobs:
   - job: BuildPackages
-    steps:
-    - script: |
-        echo "Pretend I'm building your code!"
+    pool: server
 
 - stage: Test
   dependsOn: Build
   jobs:
   - job: UnitTest
-    steps:
-    - script: |
-        echo "Pretend I'm unit testing your code!"
+    pool: server
+
   - job: SmokeTest
     dependsOn: UnitTest
-    steps:
-    - script: |
-        echo "Pretend I'm smoke testing your code!"
+    pool: server
+
   - job: LiveTest
     dependsOn: SmokeTest
-    steps:
-    - script: |
-        echo "Pretend I'm live testing your code!"
+    pool: server
