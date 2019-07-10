@@ -1,6 +1,6 @@
 stages:
-- stage: A
+- stage: Build
   jobs:
-  - job: A1
+  - job: Build
     steps:
-    - script: echo Hello, world!
+    - script: echo Pretend I'm building your!
